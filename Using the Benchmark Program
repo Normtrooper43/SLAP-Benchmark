@@ -1,0 +1,47 @@
+The SLAP_Benchmark.jar is a program designed to generate SLAP instances based on user configuration. 
+
+It can also evaluate solutions provided to it. The program is capable of performing both actions based on
+the arguments it has received.
+
+To do instance generation:
+
+java -jar .\SLAP_Benchmark.jar gen config.txt
+
+The first argument is the gen string that tells it to perform generation. It is case sensitive. The 
+second argument is the config file that contains the configurations for the generator.
+
+To do function evaluation:
+
+java -jar .\SLAP_Benchmark.jar eval sols.txt instances.txt
+
+The first argument is the eval string that tells it to perform function evaluation. It is case sensitive. 
+The second argument is the file containing the solutions. Each solution is a string formatted to a given 
+structure with one solution per line. 
+
+The format of the config file is as follows:
+type: description of the set of data you are creating. Included in the file name.
+num instances: number of instances to generate
+cost limit
+time limit
+num actors
+num scenes
+num locations
+lower wage bound, upper wage bound
+lower scene duration bound, upper scene duration bound
+lower scene transition cost bound, upper scene transition cost bound
+lower location transfer time bound, upper location transfer time bound
+
+The third argument is the file containing the instance data for each solution to be evaluated on. The first
+solution is going to be evaluated with the first instance and so on. Each solution must have an instance
+associated with it in order to evaluate properly. The instances should conform to the structure detailed
+in the readme.
+
+The format of the solutions is as follows: 
+<x..>,<y..>,<..>
+
+Each solution consists of lists, separated with <> arrows that are separated from other lists with commas. 
+Each list can contain 0 or n number of ints, indicating each asset assigned to that location.
+
+For example, <1,2,0>,<4>,<> indicates that assets 0,1,2 are assigned to location 0. Asset 4 is assigned
+to location 1, and location 2 has no assets assigned.
+
