@@ -21,15 +21,10 @@ structure with one solution per line.
 The format of the config file is as follows:
 type: description of the set of data you are creating. Included in the file name.
 num instances: number of instances to generate
-cost limit
-time limit
-num actors
-num scenes
+num assets
 num locations
-lower wage bound, upper wage bound
-lower scene duration bound, upper scene duration bound
-lower scene transition cost bound, upper scene transition cost bound
-lower location transfer time bound, upper location transfer time bound
+lower rescue proability bound, upper rescue probability bound
+lower location value bound, upper location value probability bound
 
 The third argument is the file containing the instance data for each solution to be evaluated on. The first
 solution is going to be evaluated with the first instance and so on. Each solution must have an instance
